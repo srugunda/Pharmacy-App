@@ -1,0 +1,2 @@
+rootProject.name='Eris Pharmacy App'
+include ':app'
