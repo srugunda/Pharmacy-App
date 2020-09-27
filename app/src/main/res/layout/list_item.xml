@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="#ffffff">
+    
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/panadol"
+        android:layout_weight="1"/>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:layout_margin="4dp">
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Panadol"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/item_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_name"
+            android:text="Panadol Extra Strength"
+            android:textSize="15sp"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_description"
+            android:text="Quantity: "
+            android:textSize="15sp"
+            android:layout_marginTop="8dp"/>
+
+        <ImageButton
+            android:id="@+id/add_button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/button_selector"
+            android:src="@drawable/ic_subtract"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@id/quantity"
+            android:layout_alignTop="@id/quantity"/>
+
+        <TextView
+            android:id="@+id/quantity_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="20sp"
+            android:gravity="top"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@id/add_button"
+            android:layout_below="@id/item_description"
+            android:layout_marginLeft="15dp"
+            />
+
+        <ImageButton
+            android:id="@+id/subtract_button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/button_selector"
+            android:src="@drawable/ic_add"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/quantity_value"
+            android:layout_below="@id/item_description"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:text="Add to Cart"
+            android:textAllCaps="false"
+            android:background="@drawable/button_background"/>
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
