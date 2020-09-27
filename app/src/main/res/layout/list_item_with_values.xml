@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="130dp"
+    android:layout_height="120dp"
     android:background="#ffffff"
     android:padding="8dp">
 
     <ImageView
-        android:id="@+id/item_image"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:src="@drawable/panadol"
+        android:layout_weight="1"/>
 
     <RelativeLayout
         android:layout_width="0dp"
@@ -23,7 +21,7 @@
             android:id="@+id/item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:text="Panadol"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -32,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/item_name"
-
+            android:text="Panadol Extra Strength"
             android:textSize="15sp"
             android:layout_marginTop="2dp"/>
 
@@ -49,7 +47,7 @@
             android:id="@+id/item_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:text="5000"
             android:textSize="15sp"
             android:layout_marginTop="2dp"
             android:layout_below="@id/item_description"
@@ -109,5 +107,9 @@
             android:textAllCaps="false"
             android:background="@drawable/button_background"/>
 
+
+
     </RelativeLayout>
+
+
 </LinearLayout>
