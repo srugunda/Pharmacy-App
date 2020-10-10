@@ -2,9 +2,12 @@ package com.solo.erispharmacyapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,7 +41,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.WordViewHolder
         holder.nameView.setText(mCurrent.getName());
         holder.descriptionView.setText(mCurrent.getDescription());
         holder.priceView.setText(mCurrent.getPrice());
-        holder.quantityView.setText(mCurrent.getQuantity());
+        //holder.quantityView.setText(mCurrent.getQuantity());
         holder.imageView.setImageResource(mCurrent.image);
     }
 
@@ -46,6 +49,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.WordViewHolder
     public int getItemCount() {
         return mItemList.size();
     }
+
+
 
     class WordViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView nameView;
@@ -56,6 +61,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.WordViewHolder
         //public final Drawable drawable;
         final ItemAdapter mAdapter;
 
+        private ImageButton addButton;
+        private ImageButton subtractButton;
+        private Button addToCartButton;
+        private TextView quantity;
+        private String sQuantity;
+
         public WordViewHolder(View itemView, ItemAdapter adapter) {
             super(itemView);
             nameView = itemView.findViewById(R.id.item_name);
@@ -65,7 +76,46 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.WordViewHolder
             imageView = itemView.findViewById(R.id.item_image);
             this.mAdapter = adapter;
             itemView.setOnClickListener(this);
+
+            addButton = itemView.findViewById(R.id.add_button);
+            subtractButton = itemView.findViewById(R.id.subtract_button);
+            addToCartButton = itemView.findViewById(R.id.add_to_cart_button);
+            quantity = itemView.findViewById(R.id.quantity_value);
+
+
+
+            addButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    sQuantity = quantity.getText().toString();
+                    int mQuantity = Integer.parseInt(sQuantity);
+                    mQuantity++;
+                    quantity.setText(String.valueOf(mQuantity));
+                }
+            });
+
+            subtractButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    sQuantity = quantity.getText().toString();
+                    int mQuantity = Integer.parseInt(sQuantity);
+                    mQuantity--;
+                    quantity.setText(String.valueOf(mQuantity));
+                }
+            });
+
+            addToCartButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    sQuantity = quantity.getText().toString();
+                    addToCartButton.setText(sQuantity + " items added");
+                    addToCartButton.setBackgroundColor(Color.LTGRAY);
+                    addToCartButton.setPadding(3,0,3,0);
+                }
+            });
+
         }
+
 
         @Override
         public void onClick(View v) {
